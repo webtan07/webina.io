@@ -743,6 +743,10 @@ export interface BusinessProfile {
   name: string;
   timezone: string;
   assistantName: string;
+  greeting: string | null;
+  tone: string;
+  businessRules: string | null;
+  tradeTemplate: string;
   status: string;
   botEnabled: boolean;
   ownerNotifyEmail: string;
@@ -760,11 +764,36 @@ export async function getBusinessProfile(businessId: string): Promise<BusinessPr
     name: row.name,
     timezone: row.timezone,
     assistantName: row.assistantName,
+    greeting: row.greeting,
+    tone: row.tone,
+    businessRules: row.businessRules,
+    tradeTemplate: row.tradeTemplate,
     status: row.status,
     botEnabled: row.botEnabled,
     ownerNotifyEmail: row.ownerNotifyEmail,
     currency: row.currency,
   };
+}
+
+/**
+ * The assistant's editable settings — used by the dashboard later and by the
+ * scenario runner now, so a fixture can carry its trade's own tone and notes.
+ */
+export async function updateAssistantSettings(
+  businessId: string,
+  input: { tone?: string; businessRules?: string | null; assistantName?: string },
+): Promise<void> {
+  await withTenant(businessId, async (tx) => {
+    await tx
+      .update(businesses)
+      .set({
+        ...(input.tone === undefined ? {} : { tone: input.tone }),
+        ...(input.businessRules === undefined ? {} : { businessRules: input.businessRules }),
+        ...(input.assistantName === undefined ? {} : { assistantName: input.assistantName }),
+        updatedAt: new Date(),
+      })
+      .where(eq(businesses.id, businessId));
+  });
 }
 
 /** Which plan a tenant is on. Missing subscription = the entry plan. */

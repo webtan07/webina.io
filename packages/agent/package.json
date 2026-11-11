@@ -12,7 +12,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "tools:try": "tsx bin/tools-try.ts"
+    "tools:try": "tsx bin/tools-try.ts",
+    "eval": "tsx bin/eval.ts"
   },
   "dependencies": {
     "@webina/db": "workspace:*",
