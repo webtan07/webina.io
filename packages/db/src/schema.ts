@@ -300,14 +300,16 @@ export const bookings = pgTable(
     source: text("source").notNull().default("dashboard"),
     conversationId: uuid("conversation_id"),
     idempotencyKey: text("idempotency_key"),
+    /** Position within the slot: 0..capacity-1. Assigned under the slot lock. */
+    slotSeq: smallint("slot_seq").notNull().default(0),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
   },
   (t) => [
     uniqueIndex("bookings_business_idempotency_key").on(t.businessId, t.idempotencyKey),
-    // One confirmed booking per business per slot start. Cancelling frees it.
-    uniqueIndex("bookings_business_start_confirmed_key")
-      .on(t.businessId, t.startAt)
+    // One confirmed booking per slot position. Cancelling frees the position.
+    uniqueIndex("bookings_business_start_slot_confirmed_key")
+      .on(t.businessId, t.startAt, t.slotSeq)
       .where(sql`status = 'confirmed'`),
     index("bookings_business_start_idx").on(t.businessId, t.startAt),
     index("bookings_business_status_idx").on(t.businessId, t.status),

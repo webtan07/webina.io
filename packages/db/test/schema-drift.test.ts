@@ -17,7 +17,7 @@ afterAll(async () => {
   await pool.end();
 });
 
-const tables = Object.values(schema).filter((value): value is PgTable => is(value, PgTable));
+const tables = Object.values(schema).filter((value) => is(value, PgTable)) as PgTable[];
 
 describe("schema matches the applied migration", () => {
   it("finds every schema table in the database", async () => {

@@ -11,6 +11,7 @@
     "./client": "./src/client.ts",
     "./tenant": "./src/tenant.ts",
     "./tenants": "./src/tenants.ts",
+    "./catalogue": "./src/catalogue.ts",
     "./testing": "./src/testing.ts"
   },
   "scripts": {

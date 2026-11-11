@@ -13,7 +13,8 @@
     "db:migrate": "pnpm --filter @webina/db run migrate",
     "db:roles": "pnpm --filter @webina/db run roles",
     "format": "prettier --check .",
-    "format:write": "prettier --write ."
+    "format:write": "prettier --write .",
+    "tools:try": "pnpm --filter @webina/agent exec tsx bin/tools-try.ts"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
