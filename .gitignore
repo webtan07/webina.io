@@ -1,0 +1,14 @@
+node_modules/
+.pnpm-store/
+dist/
+.vercel/
+.output/
+.turbo/
+*.log
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+routeTree.gen.ts
+*.tsbuildinfo
