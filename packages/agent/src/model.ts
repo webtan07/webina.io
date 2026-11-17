@@ -219,3 +219,60 @@ export class AnthropicModelClient implements ModelClient {
     };
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * The offline fallback
+ * ------------------------------------------------------------------ */
+
+/**
+ * Shown when no model is configured. It is honest about it: the widget still
+ * answers, the customer is told a person will pick it up, and the owner gets
+ * the notification — which is what happens with no key at all.
+ */
+export const OFFLINE_REPLY =
+  "Thanks for your message. Our assistant is not connected yet, so I've passed this to the team and someone will get back to you shortly.";
+
+/**
+ * A model that never leaves the process: one fixed reply, no tool calls, no
+ * tokens spent. It is the seam that lets the chat endpoint run end to end on a
+ * machine with no API key, and it is replaced the moment a key is set.
+ */
+export class OfflineModelClient implements ModelClient {
+  constructor(private readonly reply: string = OFFLINE_REPLY) {}
+
+  async complete(): Promise<ModelResponse> {
+    return {
+      content: [{ type: "text", text: this.reply }],
+      stopReason: "end_turn",
+      usage: { inputTokens: 0, outputTokens: 0 },
+    };
+  }
+}
+
+/** Used only when a key is present but the operator has not named a model. */
+export const DEFAULT_MODEL_NAME = "claude-sonnet-4-5";
+
+export interface ResolvedModel {
+  client: ModelClient;
+  model: string;
+  /** True when the reply comes from `OfflineModelClient`. Logged, never hidden. */
+  offline: boolean;
+}
+
+/**
+ * Pick the model from the environment. A key present means the real client;
+ * a key absent means the offline one, because a customer message must always
+ * get an answer rather than a 500.
+ */
+export function resolveModelClient(env: NodeJS.ProcessEnv = process.env): ResolvedModel {
+  const apiKey = (env.ANTHROPIC_API_KEY ?? "").trim();
+  const model = (env.AGENT_MODEL ?? "").trim();
+  if (apiKey === "") {
+    return { client: new OfflineModelClient(), model: model || "offline", offline: true };
+  }
+  return {
+    client: new AnthropicModelClient({ apiKey }),
+    model: model || DEFAULT_MODEL_NAME,
+    offline: false,
+  };
+}

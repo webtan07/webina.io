@@ -775,6 +775,47 @@ export async function getBusinessProfile(businessId: string): Promise<BusinessPr
   };
 }
 
+/** Only what a stranger's page may be told: no email, no phone, no ids. */
+export interface WidgetBranding {
+  businessName: string;
+  assistantName: string;
+  brandColor: string | null;
+  greeting: string | null;
+  showPoweredBy: boolean;
+  botEnabled: boolean;
+}
+
+/**
+ * The widget's config, read after a site key and an origin have already been
+ * accepted. Deliberately narrower than `getBusinessProfile`: nothing here is
+ * more sensitive than the page's own title, so it can be served to any visitor.
+ */
+export async function getWidgetBranding(businessId: string): Promise<WidgetBranding> {
+  const rows = await withTenant(businessId, async (tx) =>
+    tx
+      .select({
+        name: businesses.name,
+        assistantName: businesses.assistantName,
+        brandColor: businesses.brandColor,
+        greeting: businesses.greeting,
+        showPoweredBy: businesses.showPoweredBy,
+        botEnabled: businesses.botEnabled,
+      })
+      .from(businesses)
+      .where(eq(businesses.id, businessId)),
+  );
+  const row = rows[0];
+  if (!row) throw new NotFoundError("business");
+  return {
+    businessName: row.name,
+    assistantName: row.assistantName,
+    brandColor: row.brandColor,
+    greeting: row.greeting,
+    showPoweredBy: row.showPoweredBy,
+    botEnabled: row.botEnabled,
+  };
+}
+
 /**
  * The assistant's editable settings — used by the dashboard later and by the
  * scenario runner now, so a fixture can carry its trade's own tone and notes.
