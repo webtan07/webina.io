@@ -15,7 +15,7 @@
 
 import { brandInk, safeBrandColor } from "@webina/shared/brand";
 import type { WidgetConfig } from "@webina/shared";
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useLayoutEffect, useRef, useState } from "preact/hooks";
 
 import { ChatApiError, loadWidgetConfig, sendChatMessage } from "./api";
 
@@ -147,7 +147,11 @@ export function App(props: AppProps) {
   }, [config]);
 
   // Opening the panel puts the cursor in the box; closing it hands focus back.
-  useEffect(() => {
+  // A layout effect, not a passive one: closing removes the focused input, and
+  // the browser drops focus to <body> the moment that happens. Restoring it has
+  // to be part of the same commit, or a keyboard user is left with nothing
+  // focused and has to Tab in from the top of the page.
+  useLayoutEffect(() => {
     if (open) {
       inputRef.current?.focus();
     } else if (wasOpen.current) {
