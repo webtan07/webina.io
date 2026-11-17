@@ -1,19 +1,42 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+/**
+ * The shell every tenant page lives inside.
+ *
+ * The loader is the authorisation gate: it resolves the session, then the
+ * membership, then reads the business inside RLS. A page under this route
+ * cannot render without all three, so no child page needs its own check.
+ */
+
+import { Link, Outlet, createFileRoute } from "@tanstack/react-router";
 
 import { fetchBusiness } from "~/server/functions";
 
 export const Route = createFileRoute("/business/$businessId")({
   loader: ({ params }) => fetchBusiness({ data: { businessId: params.businessId } }),
-  component: BusinessPage,
+  component: BusinessLayout,
 });
 
-function BusinessPage() {
+const NAV = [
+  { to: "/business/$businessId", label: "Overview" },
+  { to: "/business/$businessId/onboarding", label: "Setup" },
+  { to: "/business/$businessId/services", label: "Services" },
+  { to: "/business/$businessId/area", label: "Area" },
+  { to: "/business/$businessId/hours", label: "Hours" },
+  { to: "/business/$businessId/conversations", label: "Conversations" },
+  { to: "/business/$businessId/bookings", label: "Bookings" },
+  { to: "/business/$businessId/requests", label: "Requests" },
+  { to: "/business/$businessId/handoffs", label: "Handoffs" },
+  { to: "/business/$businessId/test-chat", label: "Test chat" },
+  { to: "/business/$businessId/install", label: "Install" },
+  { to: "/business/$businessId/settings", label: "Settings" },
+] as const;
+
+function BusinessLayout() {
   const result = Route.useLoaderData();
   const { businessId } = Route.useParams();
 
   if (result.status === "signed_out") {
     return (
-      <main>
+      <main className="app-shell">
         <h1>Sign in required</h1>
         <p className="lede">Sign in to open this business.</p>
         <div className="actions">
@@ -29,7 +52,7 @@ function BusinessPage() {
     // Same answer whether the business belongs to somebody else or does not
     // exist: nothing about other tenants leaks through this page.
     return (
-      <main>
+      <main className="app-shell">
         <h1>No access</h1>
         <p className="lede">
           Your account is not a member of this business. If it should be, ask its owner to add you.
@@ -39,9 +62,6 @@ function BusinessPage() {
             Back to your businesses
           </Link>
         </div>
-        <p className="muted" style={{ marginTop: "1.5rem" }}>
-          Reference: <code>{businessId}</code>
-        </p>
       </main>
     );
   }
@@ -49,57 +69,29 @@ function BusinessPage() {
   const business = result.business;
 
   return (
-    <main>
+    <main className="app-shell">
       <p className="eyebrow">{business.tradeTemplate.replace(/_/g, " ")}</p>
-      <h1>{business.name}</h1>
-      <p className="muted">
+      <h1 style={{ marginBottom: "0.2rem" }}>{business.name}</h1>
+      <p className="muted" style={{ marginBottom: "1.25rem" }}>
         {business.assistantName} answers as this business · {business.status}
+        {business.sites[0] ? ` · ${business.sites[0].siteKey}` : ""}
       </p>
 
-      <section className="card" style={{ marginTop: "1.75rem" }}>
-        <h2>Business</h2>
-        <dl className="detail">
-          <dt>Slug</dt>
-          <dd className="mono">{business.slug}</dd>
-          <dt>Timezone</dt>
-          <dd>{business.timezone}</dd>
-          <dt>Status</dt>
-          <dd>{business.status}</dd>
-          <dt>Assistant name</dt>
-          <dd>{business.assistantName}</dd>
-        </dl>
-      </section>
+      <nav className="subnav">
+        {NAV.map((item) => (
+          <Link
+            key={item.to}
+            to={item.to}
+            params={{ businessId }}
+            activeProps={{ "data-status": "active" }}
+            activeOptions={{ exact: item.to === "/business/$businessId" }}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
 
-      <section className="card">
-        <h2>Website keys</h2>
-        {business.sites.length === 0 ? (
-          <p className="muted">No site keys yet.</p>
-        ) : (
-          business.sites.map((site) => (
-            <dl className="detail" key={site.id} style={{ marginBottom: "0.75rem" }}>
-              <dt>{site.label ?? "Site"}</dt>
-              <dd>
-                <code>{site.siteKey}</code>{" "}
-                <span className="muted">
-                  {site.isActive ? "active" : "switched off"} ·{" "}
-                  {site.allowedOrigins.length === 0
-                    ? "no origins registered yet"
-                    : site.allowedOrigins.join(", ")}
-                </span>
-              </dd>
-            </dl>
-          ))
-        )}
-        <p className="muted">
-          A website key is public. The registered origin is what makes it a tenant boundary.
-        </p>
-      </section>
-
-      <div className="actions">
-        <Link to="/dashboard" className="button secondary">
-          Back to your businesses
-        </Link>
-      </div>
+      <Outlet />
     </main>
   );
 }

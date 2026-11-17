@@ -5,3 +5,5 @@ export * from "./plans";
 export * from "./schemas";
 export * from "./brand";
 export * from "./chat";
+export * from "./templates";
+export * from "./dashboard";
