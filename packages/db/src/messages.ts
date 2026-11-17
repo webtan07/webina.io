@@ -12,10 +12,72 @@
 
 import { and, count, desc, eq } from "drizzle-orm";
 
+import { generateCustomerRef } from "@webina/shared";
+
 import { conversations, messages, usageEvents } from "./schema";
 import { withTenant } from "./tenant";
 
 export type MessageRole = "user" | "assistant";
+
+export interface ConversationHandle {
+  id: string;
+  customerRef: string;
+  status: string;
+}
+
+/**
+ * Start a conversation. The handle returned is the one the widget keeps: a
+ * `cref_…` string, scoped to this tenant, not the row id.
+ */
+export async function createConversation(
+  businessId: string,
+  input: { channel?: string; customerRef?: string } = {},
+): Promise<ConversationHandle> {
+  const customerRef = input.customerRef ?? generateCustomerRef();
+  return withTenant(businessId, async (tx) => {
+    const [row] = await tx
+      .insert(conversations)
+      .values({
+        businessId,
+        channel: input.channel ?? "web",
+        customerRef,
+        status: "active",
+      })
+      .returning({
+        id: conversations.id,
+        customerRef: conversations.customerRef,
+        status: conversations.status,
+      });
+    if (!row) throw new Error("conversation row was not created");
+    return row;
+  });
+}
+
+/**
+ * Find a conversation by the handle the widget sent back. Tenant-scoped, so a
+ * handle from another business reads as "no rows" and the caller starts a new
+ * conversation rather than opening somebody else's.
+ */
+export async function findConversationByCustomerRef(
+  businessId: string,
+  customerRef: string,
+): Promise<ConversationHandle | null> {
+  const rows = await withTenant(businessId, async (tx) =>
+    tx
+      .select({
+        id: conversations.id,
+        customerRef: conversations.customerRef,
+        status: conversations.status,
+      })
+      .from(conversations)
+      .where(
+        and(eq(conversations.businessId, businessId), eq(conversations.customerRef, customerRef)),
+      )
+      .orderBy(desc(conversations.startedAt))
+      .limit(1),
+  );
+  return rows[0] ?? null;
+}
 
 export interface MessageRecord {
   id: string;

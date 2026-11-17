@@ -12,3 +12,4 @@ dist/
 coverage/
 routeTree.gen.ts
 *.tsbuildinfo
+apps/web/public/webina-widget.js
