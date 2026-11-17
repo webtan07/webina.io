@@ -1,0 +1,69 @@
+/* Custom styles, multi-stop gradients & smooth transitions */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Signature Indigo -> Purple -> Pink Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.dark .gradient-text {
+    background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero subtle mesh gradient overlay */
+.hero-gradient-bg {
+    background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+}
+
+.dark .hero-gradient-bg {
+    background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.18) 0%, transparent 45%),
+                radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.16) 0%, transparent 45%),
+                radial-gradient(circle at 50% 85%, rgba(236, 72, 153, 0.10) 0%, transparent 50%);
+}
+
+/* Venture cards with gradient hover accent */
+.venture-card {
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.venture-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 12px 28px -8px rgba(99, 102, 241, 0.15), 0 4px 12px -4px rgba(236, 72, 153, 0.08);
+}
+
+.dark .venture-card:hover {
+    border-color: rgba(167, 139, 250, 0.45);
+    box-shadow: 0 12px 28px -8px rgba(99, 102, 241, 0.25), 0 4px 12px -4px rgba(168, 85, 247, 0.15);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #a5b4fc, #d8b4fe);
+    border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4338ca, #7e22ce);
+}

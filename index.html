@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webina Marquez Tangoan | App Developer, Support Analyst & Entrepreneur</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="font-bold text-lg tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white px-2.5 py-1 rounded-lg text-sm font-mono shadow-sm">W</span>
+                webina.io
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+                <a href="#ventures" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Ventures</a>
+                <a href="#expertise" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Expertise</a>
+                <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white text-sm font-medium shadow-sm transition">
+                    Let's Connect
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+
+        <!-- Hero Section with Multi-Stop Gradient Glow -->
+        <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 border-b border-slate-200 dark:border-slate-800">
+            <!-- Ambient Gradient Background Orbs -->
+            <div class="hero-gradient-bg absolute inset-0 pointer-events-none"></div>
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-indigo-500/20 dark:bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/3 -right-24 w-96 h-96 bg-purple-500/20 dark:bg-purple-500/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 left-1/3 w-80 h-80 bg-pink-500/15 dark:bg-pink-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-950/70 dark:via-purple-950/70 dark:to-pink-950/70 text-indigo-600 dark:text-indigo-300 text-xs font-semibold mb-6 border border-indigo-200/70 dark:border-indigo-800/70 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-600 to-pink-600 animate-pulse"></span>
+                    Entrepreneur & Developer
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto leading-tight">
+                    Building <span class="gradient-text">scalable software, AI automations,</span> & digital ventures.
+                </h1>
+                
+                <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                    Hi, I'm <strong class="text-slate-900 dark:text-white font-semibold">Webina Marquez Tangoan</strong>. With <span class="gradient-text font-bold">20+ years</span> in app development and support analysis, I now build and scale specialized web applications, custom dashboards, AI agencies, and digital tools.
+                </p>
+
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+                    <a href="#ventures" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-medium shadow-md shadow-indigo-500/25 transition flex items-center gap-2">
+                        <span>Explore My Ventures</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-xl bg-white/90 dark:bg-slate-900/90 backdrop-blur hover:bg-white dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium border border-slate-200 dark:border-slate-800 transition">
+                        Get in Touch
+                    </a>
+                </div>
+
+                <!-- Quick Stats / Highlights -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-slate-200/80 dark:border-slate-800/80 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-mono">20+</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Years Dev & Support</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold gradient-text font-mono">6</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Ventures & Client Work</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-mono">3</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Live Platforms</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-mono">2</div>
+                        <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">In Progress SaaS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ventures Section -->
+        <section id="ventures" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-wider gradient-text">Portfolio</h2>
+                    <p class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">My Digital Ventures & Projects</p>
+                </div>
+                <!-- Filter Tabs -->
+                <div class="mt-4 md:mt-0 flex flex-wrap gap-2" id="filter-container">
+                    <button data-filter="all" class="filter-btn active-filter px-4 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm transition">All (6)</button>
+                    <button data-filter="live" class="filter-btn px-4 py-1.5 rounded-lg text-xs font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition">Live (3)</button>
+                    <button data-filter="progress" class="filter-btn px-4 py-1.5 rounded-lg text-xs font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition">In Progress (2)</button>
+                    <button data-filter="nda" class="filter-btn px-4 py-1.5 rounded-lg text-xs font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-700 transition">Client / NDA (1)</button>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="ventures-grid">
+
+                <!-- 1. Web Digital Assistants -->
+                <div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="live">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">AI Agency</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Web Digital Assistants</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            My AI automation agency specializing in customized AI chatbots, missed-call text-backs, review automation, and lead generation workflows for businesses and agencies.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">AI Automation</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">Chatbots</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Lead Gen</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                        <a href="https://www.webdigitalassistants.com/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                            <span>Visit Agency</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                        <i class="fa-solid fa-robot text-indigo-400/80"></i>
+                    </div>
+                </div>
+
+                <!-- 2. Miss Surpriser -->
+                <div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="live">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">E-Commerce</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Miss Surpriser</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Conceptualized and created this e-commerce site monetizing downloadable digital gifting planners and checklists via Stripe, featuring WhatsApp integration.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">Stripe</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">WhatsApp</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Digital Goods</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                        <a href="https://misssurpriser.com.au" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                            <span>Visit Store</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                        <i class="fa-solid fa-gift text-pink-400/80"></i>
+                    </div>
+                </div>
+
+                <!-- 3. Wonder With Web -->
+                <div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="live">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-900">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Coaching & Community</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Wonder With Web</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Purpose coaching, honest reflection tools, and digital workbooks for single women in midlife. Built the site, email automation for free journal sign-ups, and WooCommerce checkout.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">WooCommerce</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">Email Funnel</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Coaching</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                        <a href="https://wonderwithweb.com" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                            <span>Visit Platform</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                        <i class="fa-solid fa-compass text-purple-400/80"></i>
+                    </div>
+                </div>
+
+                <!-- 4. Webina AI -->
+<div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="progress">
+    <div>
+        <div class="flex items-center justify-between mb-4">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> In Progress
+            </span>
+            <span class="text-xs font-mono text-slate-400">SaaS App</span>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Webina AI</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            A SaaS application allowing users to seamlessly create, edit, manage, and export professional webinars with AI-powered assistance.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-1.5">
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">SaaS</span>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">Webinar Tool</span>
+            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">AI Generator</span>
+        </div>
+    </div>
+    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+        <a href="webina-ai.html" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+            <span>Join Waitlist</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+        <i class="fa-solid fa-code text-indigo-400/80"></i>
+    </div>
+</div>
+
+                <!-- 5. Weaknest -->
+                <div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="progress">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span> In Progress
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Community Hub</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Weaknest</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            A community-driven platform conceptualized and created to connect and engage members around shared growth topics. Currently under active development.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">Community</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">Platform</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+                        <a href="http://weaknest.com" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                            <span>Visit Preview</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                        <i class="fa-solid fa-users text-purple-400/80"></i>
+                    </div>
+                </div>
+
+                <!-- 6. Client & NDA Systems (Dashboards, White-Label & Custom Builds) -->
+                <div class="venture-card gradient-border-card bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm flex flex-col justify-between" data-category="nda">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-900">
+                                <i class="fa-solid fa-lock text-[10px]"></i> Confidential / NDA
+                            </span>
+                            <span class="text-xs font-mono text-slate-400">Dashboards & Custom</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Client & NDA Systems</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Custom analytics dashboards, admin portals, lead management dashboards, white-label AI workflows, and tailored web applications delivered privately under Non-Disclosure Agreements.
+                        </p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300">Analytics Dashboards</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-purple-50/70 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300">Admin & Lead Portals</span>
+                            <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">White-Label AI</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                        <a href="#contact" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                            <span>Request Capabilities</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <i class="fa-solid fa-chart-line text-purple-400/80"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="py-20 bg-gradient-to-b from-white via-indigo-50/30 to-white dark:from-slate-900/50 dark:via-indigo-950/10 dark:to-slate-900/50 border-y border-slate-200 dark:border-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-wider gradient-text">Experience & Skills</h2>
+                    <p class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">20+ Years of Technical Excellence</p>
+                    <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+                        Bridging robust enterprise application development and custom dashboards with modern full-stack entrepreneurship and AI automation.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-900/90 backdrop-blur border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/15 to-purple-500/15 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4 text-xl border border-indigo-500/20">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">App & Dashboard Development</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Extensive background building reliable web applications, analytics/admin/lead dashboards, e-commerce checkouts (WooCommerce/Stripe), and SaaS solutions from the ground up.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-900/90 backdrop-blur border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/15 to-pink-500/15 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 text-xl border border-purple-500/20">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Support Analysis</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Over 20 years diagnosing complex technical bottlenecks, optimizing systems, and delivering dependable operational support for mission-critical software.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-white/80 dark:bg-slate-900/90 backdrop-blur border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500/15 to-indigo-500/15 text-pink-600 dark:text-pink-400 flex items-center justify-center mb-4 text-xl border border-pink-500/20">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">AI Automation</h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Designing and deploying intelligent chat widgets, automated lead capture sequences, and email funnels that save time and drive revenue for clients.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-indigo-50 via-purple-50/70 to-pink-50/70 dark:from-indigo-950/40 dark:via-purple-950/30 dark:to-slate-900 border border-indigo-200/60 dark:border-indigo-800/40 shadow-sm">
+                <h2 class="text-xs font-bold uppercase tracking-wider gradient-text">Get In Touch</h2>
+                <p class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">Let's Build Something Together</p>
+                <p class="mt-3 text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm">
+                    Whether you're looking for custom dashboards, AI automation solutions, or want to discuss a project, my inbox is always open.
+                </p>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="mailto:hello@webina.io" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 text-white font-medium shadow-md shadow-indigo-500/20 transition flex items-center gap-2">
+                        <i class="fa-solid fa-envelope text-sm"></i>
+                        <span>Email Me</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/webtangoan/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium border border-slate-200 dark:border-slate-800 transition flex items-center gap-2">
+                        <i class="fa-brands fa-linkedin text-indigo-600 dark:text-indigo-400 text-base"></i>
+                        <span>Connect on LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-white dark:bg-slate-900 text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-slate-900 dark:text-white">webina.io</span>
+                <span>·</span>
+                <span>© 2026 Webina Marquez Tangoan. All rights reserved.</span>
+            </div>
+            <div>
+                <a href="https://www.linkedin.com/in/webtangoan/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition inline-flex items-center gap-1 font-medium">
+                    <i class="fa-brands fa-linkedin text-indigo-600 dark:text-indigo-400"></i>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
